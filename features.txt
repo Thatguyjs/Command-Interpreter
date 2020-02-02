@@ -1,0 +1,42 @@
+"
+	Sample program - covers current language features
+"
+
+/ Move the cell pointer right or left
+> <
+
+/ Add or subtract from the current cell
++ -
+
++ / Set the first cell to 1
+
+/ Loop if the current cell is non-zero
+[
+ > ++ / Add 2 to the second cell
+ < - / Subtract one from the first cell
+]
+
+/ Move right once, then display the value of the cell
+> .
+
+/ Display the value of a cell as an ascii character
+:
+
+/ Output a newline to the console
+=
+
+/ Add a debugging statement
+{Output directly to the debugger!}
+
+/ Output to the debugger with newlines on both ends
+{{Output with newlines on both ends!}}
+
+/ Compare a number with the current cell
+? > 1 (
+ / Only executed if the comparison passes
+ {{Statement passed!}
+)
+
+"
+	More features coming soon!
+"

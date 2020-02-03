@@ -115,15 +115,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="libs\char\char.cpp" />
+    <ClCompile Include="libs\convert\char.cpp" />
     <ClCompile Include="libs\file\file.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\interpreter.cpp" />
+    <ClCompile Include="src\jump.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="libs\char\char.h" />
+    <ClInclude Include="libs\convert\char.h" />
     <ClInclude Include="libs\file\file.h" />
+    <ClInclude Include="libs\list\list.h" />
+    <ClInclude Include="libs\list\node.h" />
     <ClInclude Include="src\interpreter.h" />
+    <ClInclude Include="src\jump.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -157,6 +157,49 @@ namespace Lang {
 	}
 
 
+	void Interpreter::createJump() {
+		this->changeProgramIndex(1);
+
+		std::string name = "";
+
+		while (!this->finished && this->getProgramChar() != '#') {
+			name += this->getProgramChar();
+			this->changeProgramIndex(1);
+		}
+
+		this->changeProgramIndex(1);
+		this->jumps.append(Jump(name.data(), this->programIndex));
+	}
+
+	void Interpreter::gotoJump() {
+		this->changeProgramIndex(1);
+
+		std::string stringName = "";
+		
+		while (!this->finished && this->getProgramChar() != '@') {
+			stringName += this->getProgramChar();
+			this->changeProgramIndex(1);
+		}
+
+		this->changeProgramIndex(1);
+
+		const char* name = stringName.data();
+		unsigned int jumpLength = this->jumps.length();
+
+		for (unsigned int i = 0; i < jumpLength; i++) {
+			if (this->jumps.get(i).name == name) {
+				this->programIndex = this->jumps.get(i).index;
+				name = "";
+				break;
+			}
+		}
+
+		if (name != "") {
+			this->raiseError(1, "Unknown jump");
+		}
+	}
+
+
 	// Run the program
 
 	int Interpreter::run() {
@@ -272,6 +315,16 @@ namespace Lang {
 				case ',':
 					std::cout << "\n[Interpreter]: Input is still in development\n";
 					this->changeProgramIndex(1);
+					break;
+
+
+				// Create / goto jumps
+				case '#':
+					this->createJump();
+					break;
+
+				case '@':
+					this->gotoJump();
 					break;
 
 

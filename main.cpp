@@ -6,6 +6,7 @@
 int main(int argc, char** argv) {
 	const char* filepath = "";
 
+	
 	if (argc > 1) filepath = argv[1];
 	else {
 		std::cout << "Enter a filepath to run";
@@ -27,6 +28,7 @@ int main(int argc, char** argv) {
 		std::cout << "Exiting with code " << interpreter.lastErrorCode() << std::endl;
 		return interpreter.lastErrorCode();
 	}
+
 
 	return 0;
 }

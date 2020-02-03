@@ -1,5 +1,8 @@
-#include "../libs/char/char.h"
+#include "../libs/convert/char.h"
 #include "../libs/file/file.h"
+#include "../libs/list/list.h"
+
+#include "jump.h"
 
 
 namespace Lang {
@@ -43,6 +46,9 @@ namespace Lang {
 
 		bool compareValue();
 
+		void createJump();
+		void gotoJump();
+
 
 		// Program stats
 		int programIndex = 0;
@@ -50,6 +56,7 @@ namespace Lang {
 
 		char memory[30000] = { 0 };
 		int memoryPointer = 0;
+		LinkedList<Jump> jumps;
 
 		bool finished = false;
 	};

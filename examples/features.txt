@@ -34,8 +34,21 @@
 / Compare a number with the current cell
 ? > 1 (
  / Only executed if the comparison passes
- {{Statement passed!}
+ {{Statement passed!}}
 )
+
+/ Create a jump point
+> #myJump#
++
+
+/ Go to the jump point
+? < 4 (
+ {{Jumped to myJump!}
+ @myJump@
+)
+
+/ Output the result
+= {Result: } . =
 
 "
 	More features coming soon!

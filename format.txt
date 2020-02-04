@@ -1,0 +1,67 @@
+THIS FILE DEFINES THE FORMAT OF THE COMMAND LANGUAGE
+
+
+Possible comparisons:
+{cell} > {value}			More than
+{cell} < {value}			Less than
+{cell} >= {value}			More than or equal to
+{cell} <= {value}			Less than or equal to
+{cell} = {value}			Equal to
+{cell} != {value}			Not equal to
+
+
+All commands:
+/					Single line comment
+" "					Multi line comment
+
+>					Move the cell pointer right
+<					Move the cell pointer left
+
++					Increment the current cell
+-					De-increment the current cell
+
+.					Output the current cell's value
+:					Output the current cell's value as an ascii character
+!					Output a new line
+,					Input a number to the current cell
+
+{{string}}			Log {string} to the debugger
+
+[					Continue if the current cell's value is non-zero, otherwise
+					skip to the corresponding ]
+]					Continue if the current cell's value is 0, otherwise go back
+					to the corresponding [
+
+? {op} {number} ()	Compare the current cell with {number}, if the comparison
+					passes {op}, then execute the code inside ()
+
+#{name}#			Define a jump point as {name}
+@{name}@			Go to the jump point {name}
+
+;					Terminate the current program
+
+
+Experimental commands:
+&{filename}			Include another source file with the name {filename}. The
+					file name can be surrounded in double or single quotes
+
+${name}{params} ()	Define function {name} with the number of parameters
+					{params} and the function body inside ()
+/{name}{params}		Call function {name} with the parameters {params}.
+					Parameters are separated by a comma (parameter,parameter)
+%{p0}				Get a parameter {p0}'s value. Use p{n} to get the {n}th
+					parameter, starting with 0
+
+
+The Interpreter:
+_program: {
+	name: "",
+
+	data: "",
+	dataIndex: 0,
+
+	memory: new Uint8ClampedArray(),
+	cellIndex: 0,
+
+	error: false
+}

@@ -10,10 +10,6 @@ public:
 		this->data = data;
 	}
 
-	void setNext(type *next) {
-		this->next = next;
-	};
-
 	type data;
 	ListNode<type> *next;
 };

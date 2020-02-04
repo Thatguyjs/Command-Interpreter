@@ -16,11 +16,11 @@ public:
 
 	// Overwrite a file
 	void write(const char* data);
-	void write(std::string data);
+	void write(std::string data); // TODO
 
 	// Append to a file
-	void append(const char* data);
-	void append(std::string data);
+	void append(const char* data); // TODO
+	void append(std::string data); // TODO
 
 	// Get path / data
 	const char* path();
@@ -28,6 +28,7 @@ public:
 
 	// Error code
 	int error = 0;
+
 private:
 	const char* _path;
 	std::string _data;

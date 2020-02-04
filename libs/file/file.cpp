@@ -12,6 +12,7 @@ File::File(const char* filepath) {
 
 void File::load(const char* filepath) {
 	this->_path = filepath;
+	this->_data = "";
 	this->error = 0;
 }
 
@@ -35,19 +36,20 @@ std::string File::read() {
 
 
 void File::write(const char* data) {
+	std::ofstream file;
+	file.open(this->_path);
 
-}
+	if (!file.is_open()) {
+		this->error = 1;
+		return;
+	}
 
-void File::write(std::string data) {
-
+	file << data;
+	file.close();
 }
 
 
 void File::append(const char* data) {
-
-}
-
-void File::append(std::string data) {
 
 }
 

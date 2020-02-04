@@ -117,17 +117,19 @@
   <ItemGroup>
     <ClCompile Include="libs\convert\char.cpp" />
     <ClCompile Include="libs\file\file.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="src\interpreter.cpp" />
-    <ClCompile Include="src\jump.cpp" />
+    <ClCompile Include="src\compressor\compress.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\interpreter\interpreter.cpp" />
+    <ClCompile Include="src\interpreter\jump.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="libs\convert\char.h" />
     <ClInclude Include="libs\file\file.h" />
     <ClInclude Include="libs\list\list.h" />
     <ClInclude Include="libs\list\node.h" />
-    <ClInclude Include="src\interpreter.h" />
-    <ClInclude Include="src\jump.h" />
+    <ClInclude Include="src\compressor\compress.h" />
+    <ClInclude Include="src\interpreter\interpreter.h" />
+    <ClInclude Include="src\interpreter\jump.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

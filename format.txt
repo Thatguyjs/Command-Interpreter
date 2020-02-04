@@ -25,29 +25,29 @@ All commands:
 =					Output a new line
 ,					Input a number to the current cell
 
-{{string}}			Log {string} to the debugger
+{{string}}				Log {string} to the debugger
 
 [					Continue if the current cell's value is non-zero, otherwise
-					skip to the corresponding ]
+						skip to the corresponding ]
 ]					Continue if the current cell's value is 0, otherwise go back
-					to the corresponding [
+						to the corresponding [
 
-? {op} {number} ()	Compare the current cell with {number}, if the comparison
-					passes {op}, then execute the code inside ()
+? {op} {number} ()			Compare the current cell with {number}, if the comparison
+						passes {op}, then execute the code inside ()
 
-#{name}#			Define a jump point as {name}
-@{name}@			Go to the jump point {name}
+#{name}#				Define a jump point as {name}
+@{name}@				Go to the jump point {name}
 
 ;					Terminate the current program
 
 
 Experimental commands:
-&{filename}			Include another source file with the name {filename}. The
-					file name can be surrounded in double or single quotes
+&{filename}				Include another source file with the name {filename}. The
+						file name can be surrounded in double or single quotes
 
-${name}{params} ()	Define function {name} with the number of parameters
-					{params} and the function body inside ()
-/{name}{params}		Call function {name} with the parameters {params}.
-					Parameters are separated by a comma (parameter,parameter)
-%{p0}				Get a parameter {p0}'s value. Use p{n} to get the {n}th
-					parameter, starting with 0
+${name}{params} ()			Define function {name} with the number of parameters
+						{params} and the function body inside ()
+/{name}{params}				Call function {name} with the parameters {params}.
+						Parameters are separated by a comma (parameter,parameter)
+%{p0}					Get a parameter {p0}'s value. Use p{n} to get the {n}th
+						parameter, starting with 0

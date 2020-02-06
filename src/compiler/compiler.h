@@ -8,6 +8,7 @@
 namespace Lang {
 	class Compiler {
 	public:
+		Compiler(const char* path);
 
 		// Get the last raised error
 		std::string lastError();
@@ -36,6 +37,7 @@ namespace Lang {
 
 		// File
 		File file;
+		std::string relativePath = "";
 		std::string programName = "";
 		std::string program = "";
 		std::string result = ""; // The program to write to disk

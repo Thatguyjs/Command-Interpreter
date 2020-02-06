@@ -57,7 +57,7 @@ int main(int argc, char** argv) {
 		}
 	}
 	else if (mode == "-c" || mode == "-compile") {
-		Lang::Compiler compiler;
+		Lang::Compiler compiler(argv[0]);
 
 		if (compiler.load(filepath.data())) {
 			std::cout << "\n" << compiler.lastError() << std::endl;

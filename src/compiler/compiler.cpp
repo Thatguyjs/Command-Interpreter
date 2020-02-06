@@ -5,6 +5,46 @@
 
 namespace Lang {
 
+	// Constructor
+	Compiler::Compiler(const char* path) {
+		bool includesFolder = false;
+		std::string folder = "";
+
+		int index = 0;
+
+		while (path[index] != '\0') {
+			if (path[index] == '/' || path[index] == '\\') {
+				includesFolder = true;
+			}
+
+			folder += path[index];
+			index++;
+		}
+
+		if(includesFolder) {
+			int lastIndex = 0;
+		
+			while (index > 0) {
+				if (folder[index] == '/' || folder[index] == '\\') {
+					lastIndex = index;
+					break;
+				}
+
+				index--;
+			}
+
+			std::string relative = "";
+
+			for (int i = 0; i < lastIndex; i++) {
+				relative += folder[i];
+			}
+
+			if (relative.length()) relative += '/';
+			this->relativePath = relative;
+		}
+	}
+
+
 	// Error handling
 	void Compiler::raiseError(int code, std::string message) {
 		this->errorCode = code;
@@ -34,7 +74,7 @@ namespace Lang {
 		this->programLength = this->program.length();
 
 		// Headers for compilation
-		this->file.load("./headers.c");
+		this->file.load(this->relativePath + "headers.c");
 
 		if (this->file.read() == "") {
 			this->raiseError(1, "Error opening header file\n");
@@ -306,6 +346,8 @@ namespace Lang {
 
 		this->file.load(data.fullpath());
 		this->file.write(this->result.data());
+
+		std::cout << data.fullpath() << std::endl;
 
 
 		std::cout << "Compiled" << std::endl;

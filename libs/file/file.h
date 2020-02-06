@@ -3,13 +3,17 @@
 #include <fstream>
 #include <string>
 
+#include "path.h"
+
 
 class File {
 public:
 	File();
-	File(const char* filepath);
+	File(std::string filepath);
 
-	void load(const char* filepath);
+	// Setup the class data
+	void load(std::string filepath);
+	void load(PathData data);
 
 	// Read a file
 	std::string read();
@@ -23,13 +27,13 @@ public:
 	void append(std::string data); // TODO
 
 	// Get path / data
-	const char* path();
+	std::string path();
 	std::string data();
 
 	// Error code
 	int error = 0;
 
 private:
-	const char* _path;
+	std::string _path;
 	std::string _data;
 };

@@ -6,7 +6,7 @@
 
 
 namespace Lang {
-	class Compressor {
+	class Compiler {
 	public:
 
 		// Get the last raised error
@@ -16,7 +16,7 @@ namespace Lang {
 		// Load a file
 		int load(const char* filepath);
 
-		// Run the compressor
+		// Run the compiler
 		int run();
 
 	private:
@@ -27,10 +27,18 @@ namespace Lang {
 		std::string errorMessage = "";
 		int errorCode = 0;
 
+		// Compiling commands
+		void addDebug();
+		void addStatement();
+		void addJump();
+		void gotoJump();
+		void addFunction(const char* data);
+
 		// File
 		File file;
+		std::string programName = "";
 		std::string program = "";
-		std::string resultProgram = "";
+		std::string result = ""; // The program to write to disk
 
 		// Program data
 		int programIndex = 0;

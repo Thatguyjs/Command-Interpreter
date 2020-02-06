@@ -117,6 +117,8 @@
   <ItemGroup>
     <ClCompile Include="libs\convert\char.cpp" />
     <ClCompile Include="libs\file\file.cpp" />
+    <ClCompile Include="libs\file\path.cpp" />
+    <ClCompile Include="src\compiler\compiler.cpp" />
     <ClCompile Include="src\compressor\compress.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\interpreter\interpreter.cpp" />
@@ -125,8 +127,10 @@
   <ItemGroup>
     <ClInclude Include="libs\convert\char.h" />
     <ClInclude Include="libs\file\file.h" />
+    <ClInclude Include="libs\file\path.h" />
     <ClInclude Include="libs\list\list.h" />
     <ClInclude Include="libs\list\node.h" />
+    <ClInclude Include="src\compiler\compiler.h" />
     <ClInclude Include="src\compressor\compress.h" />
     <ClInclude Include="src\interpreter\interpreter.h" />
     <ClInclude Include="src\interpreter\jump.h" />

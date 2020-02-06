@@ -105,7 +105,7 @@ namespace Lang {
 		std::cout << "Finished compressing" << std::endl;
 
 		// Generate new file path
-		const char* newName = this->file.path();
+		std::string newName = this->file.path();
 		int newNameIndex = 0;
 
 		std::string newPath = "";

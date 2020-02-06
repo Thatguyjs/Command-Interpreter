@@ -3,6 +3,7 @@
 
 #include "interpreter/interpreter.h"
 #include "compressor/compress.h"
+#include "compiler/compiler.h"
 
 
 int main(int argc, char** argv) {
@@ -17,15 +18,17 @@ int main(int argc, char** argv) {
 	else {
 		std::cout << "Displaying help\n\n" <<
 			"-r filepath\t\tInterpret a file\n-run filepath\n\n" <<
-			"-c filepath\t\tCompress a file (create a copy)\n-compress filepath\n";
+			"-m filepath\t\tCompress a file (create a copy)\n-minify filepath\n\n" <<
+			"-c filepath\t\tCompile a file (create a copy)\n-compile filepath\n";
 		return 1;
 	}
 
 
 	if (mode == "-h" || mode == "-help") {
 		std::cout << "Displaying help\n\n" <<
-			"-r filepath\t\tInterpret a file\n-run\n\n" <<
-			"-c filepath\t\tCompress a file (create a copy)\n-compress filepath\n";
+			"-r filepath\t\tInterpret a file\n-run filepath\n\n" <<
+			"-m filepath\t\tCompress a file (create a copy)\n-minify filepath\n\n" <<
+			"-c filepath\t\tCompile a file (create a copy)\n-compile filepath\n";
 	}
 	else if (mode == "-r" || mode == "-run") {
 		Lang::Interpreter interpreter;
@@ -40,7 +43,7 @@ int main(int argc, char** argv) {
 			return interpreter.lastErrorCode();
 		}
 	}
-	else if (mode == "-c" || mode == "-compress") {
+	else if (mode == "-m" || mode == "-minify") {
 		Lang::Compressor compressor;
 
 		if (compressor.load(filepath.data())) {
@@ -51,6 +54,19 @@ int main(int argc, char** argv) {
 		if (compressor.run()) {
 			std::cout << "\n" << compressor.lastError() << std::endl;
 			return compressor.lastErrorCode();
+		}
+	}
+	else if (mode == "-c" || mode == "-compile") {
+		Lang::Compiler compiler;
+
+		if (compiler.load(filepath.data())) {
+			std::cout << "\n" << compiler.lastError() << std::endl;
+			return compiler.lastErrorCode();
+		}
+
+		if (compiler.run()) {
+			std::cout << "\n" << compiler.lastError() << std::endl;
+			return compiler.lastErrorCode();
 		}
 	}
 	

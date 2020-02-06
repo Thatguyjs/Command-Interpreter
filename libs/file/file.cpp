@@ -5,13 +5,19 @@ File::File() {
 
 }
 
-File::File(const char* filepath) {
+File::File(std::string filepath) {
 	this->_path = filepath;
 }
 
 
-void File::load(const char* filepath) {
+void File::load(std::string filepath) {
 	this->_path = filepath;
+	this->_data = "";
+	this->error = 0;
+}
+
+void File::load(PathData data) {
+	this->_path = data.fullpath().data();
 	this->_data = "";
 	this->error = 0;
 }
@@ -54,7 +60,7 @@ void File::append(const char* data) {
 }
 
 
-const char* File::path() {
+std::string File::path() {
 	return this->_path;
 }
 

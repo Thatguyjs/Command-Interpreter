@@ -22,7 +22,7 @@ All commands:
 
 .					Output the current cell's value
 :					Output the current cell's value as an ascii character
-=					Output a new line
+==					Output a new line
 ,					Input a number to the current cell
 
 {{string}}				Log {string} to the debugger

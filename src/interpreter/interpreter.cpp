@@ -143,7 +143,7 @@ namespace Lang {
 		else if (comparison == "<=") {
 			result = this->getCellValue() <= number;
 		}
-		else if (comparison == "=") {
+		else if (comparison == "==") {
 			result = this->getCellValue() == number;
 		}
 		else if (comparison == "!=") {

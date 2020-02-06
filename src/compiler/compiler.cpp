@@ -34,7 +34,7 @@ namespace Lang {
 		this->programLength = this->program.length();
 
 		// Headers for compilation
-		this->file.load("headers.c");
+		this->file.load("./headers.c");
 
 		if (this->file.read() == "") {
 			this->raiseError(1, "Error opening header file\n");
